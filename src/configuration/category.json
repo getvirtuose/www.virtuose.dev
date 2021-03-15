@@ -1,0 +1,13 @@
+{
+  "seo": {
+    "title": "{} | Chanoyu",
+    "description": "Tous les articles de la catégorie {} | Chanoyu"
+  },
+  "section": {
+    "articles": {
+      "title": "{}",
+      "description": "Retrouvez l'intégralité des articles du site de la catégorie {}",
+      "read": "Consulter"
+    }
+  }
+}

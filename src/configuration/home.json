@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "Chanoyu | La cérémonie du thé et le matcha",
+    "description": ""
+  },
+  "section": {
+    "byCategories": {
+      "title": "Articles de la categorie {}",
+      "description": null
+    },
+    "recently": {
+      "title": null,
+      "description": null
+    }
+  },
+  "hero": {
+    "heading": "Chanoyu",
+    "title": "<span class=\"block text-gray-900\">Cultivons ensemble</span><span class=\"block text-red-400\">l'amour du <span class=\"underline\">thé</span></span>",
+    "description": "Le temple du haïku est un espace de détente, un espace pour se ressourcer quotidiennement en lisant les haïkus de la communauté. <br /> Le temple du haïku est également un espace dédié à la création et la créativité, avec l'aide de nos ressources internes comme notre éditeur et nos recueils."
+  }
+}

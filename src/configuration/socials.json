@@ -1,0 +1,17 @@
+{
+  "facebook": {
+    "name": "Facebook",
+    "url": "",
+    "show": false
+  },
+  "twitter": {
+    "name": "Twitter",
+    "url": "",
+    "show": false
+  },
+  "instagram": {
+    "name": "Instagram",
+    "url": "",
+    "show": false
+  }
+}

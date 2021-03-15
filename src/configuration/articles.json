@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": "Les articles du site | Chanoyu",
+    "description": "Tout pour le matcha"
+  },
+  "section": {
+    "categories": {
+      "title": "Toutes les catégories",
+      "description": "Les articles sont classés par catégories pour vous aider à les retrouver"
+    },
+    "articles": {
+      "title": "Tous les articles",
+      "description": "Retrouvez l'intégralité des articles du site ici.",
+      "read": "Consulter"
+    }
+  }
+}
