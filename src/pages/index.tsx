@@ -16,22 +16,11 @@ export const Landing: React.FC<Props> = props => {
       <Header />
 
       <main>
-        {/* <!-- Hero section --> */}
         <Hero />
-
-        {/* <!-- Logo Cloud --> */}
         <LogoCloud />
-
-        {/* <!-- Alternating Feature Sections --> */}
         <AlternativeFeatures />
-
-        {/* <!-- Gradient Feature Section --> */}
         <GradientFeatures />
-
-        {/* <!-- Stats section --> */}
         <Stats />
-
-        {/* <!-- CTA Section --> */}
         <CTA />
       </main>
 

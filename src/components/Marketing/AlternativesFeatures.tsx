@@ -1,6 +1,43 @@
-import React from "react"
+import React, { ReactElement } from "react"
+import { Link } from "gatsby"
+import { FormattedMessage } from "react-intl"
+
+import SvgInbox from "../Icons/outline/Inbox"
+import SvgSparkles from "../Icons/outline/Sparkles"
 
 type Props = {}
+
+const GetStarted: React.FC = () => (
+  <Link
+    to="/"
+    className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+  >
+    <FormattedMessage id="landing/buttons/get-started" />
+  </Link>
+)
+
+const Content: React.FC<{
+  icon: ReactElement
+  title: string | ReactElement
+  description: string | ReactElement
+}> = props => (
+  <div>
+    <div>
+      <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+        {props.icon}
+      </span>
+    </div>
+    <div className="mt-6">
+      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
+        {props.title}
+      </h2>
+      <p className="mt-4 text-lg text-gray-500">{props.description}</p>
+      <div className="mt-6">
+        <GetStarted />
+      </div>
+    </div>
+  </div>
+)
 
 export const AlternativeFeatures: React.FC<Props> = () => (
   <div className="relative pt-16 pb-32 overflow-hidden">
@@ -8,59 +45,29 @@ export const AlternativeFeatures: React.FC<Props> = () => (
       aria-hidden="true"
       className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"
     ></div>
+
     <div className="relative">
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
         <div className="max-w-xl px-4 mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
-          <div>
-            <div>
-              <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
-                {/* <!-- Heroicon name: outline/inbox --> */}
-                <svg
-                  className="w-6 h-6 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div className="mt-6">
-              <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                Stay on top of customer support
-              </h2>
-              <p className="mt-4 text-lg text-gray-500">
-                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
-                bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet
-                sagittis viverra duis. In venenatis sem arcu pretium pharetra
-                at. Lectus viverra dui tellus ornare pharetra.
-              </p>
-              <div className="mt-6">
-                <a
-                  href="#"
-                  className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
-                >
-                  Get started
-                </a>
-              </div>
-            </div>
-          </div>
+          <Content
+            icon={<SvgInbox className="w-6 h-6 text-white" />}
+            description={
+              <FormattedMessage id="landing/alternative-features/support/description" />
+            }
+            title={
+              <FormattedMessage id="landing/alternative-features/support/title" />
+            }
+          />
           <div className="pt-6 mt-8 border-t border-gray-200">
             <blockquote>
               <div>
                 <p className="text-base text-gray-500">
-                  &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed
-                  diam. Sit orci risus aenean curabitur donec aliquet. Mi
-                  venenatis in euismod ut.&rdquo;
+                  &ldquo;
+                  <FormattedMessage id="landing/alternative-features/testimonials/text" />
+                  &rdquo;
                 </p>
               </div>
+
               <footer className="mt-3">
                 <div className="flex items-center space-x-3">
                   <div className="flex-shrink-0">
@@ -71,13 +78,14 @@ export const AlternativeFeatures: React.FC<Props> = () => (
                     />
                   </div>
                   <div className="text-base font-medium text-gray-700">
-                    Marcia Hill, Digital Marketing Manager
+                    <FormattedMessage id="landing/alternative-features/testimonials/name" />
                   </div>
                 </div>
               </footer>
             </blockquote>
           </div>
         </div>
+
         <div className="mt-12 sm:mt-16 lg:mt-0">
           <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
             <img
@@ -89,50 +97,19 @@ export const AlternativeFeatures: React.FC<Props> = () => (
         </div>
       </div>
     </div>
+
     <div className="mt-24">
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
         <div className="max-w-xl px-4 mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
-          <div>
-            <div>
-              <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
-                {/* <!-- Heroicon name: outline/sparkles --> */}
-                <svg
-                  className="w-6 h-6 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <div className="mt-6">
-              <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                Better understand your customers
-              </h2>
-              <p className="mt-4 text-lg text-gray-500">
-                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis
-                bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet
-                sagittis viverra duis. In venenatis sem arcu pretium pharetra
-                at. Lectus viverra dui tellus ornare pharetra.
-              </p>
-              <div className="mt-6">
-                <a
-                  href="#"
-                  className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
-                >
-                  Get started
-                </a>
-              </div>
-            </div>
-          </div>
+          <Content
+            icon={<SvgSparkles className="w-6 h-6 text-white" />}
+            description={
+              <FormattedMessage id="landing/alternative-features/understand/description" />
+            }
+            title={
+              <FormattedMessage id="landing/alternative-features/understand/title" />
+            }
+          />
         </div>
         <div className="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
           <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">

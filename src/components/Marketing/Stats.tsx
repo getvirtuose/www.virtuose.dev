@@ -1,4 +1,5 @@
 import React from "react"
+import { FormattedMessage } from "react-intl"
 
 type Props = {}
 
@@ -23,52 +24,47 @@ export const Stats: React.FC<Props> = () => (
       <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
         <h2 className="text-sm font-semibold tracking-wide uppercase">
           <span className="text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text">
-            Valuable Metrics
+            <FormattedMessage id="landing/stats/label" />
           </span>
         </h2>
         <p className="mt-3 text-3xl font-extrabold text-white">
-          Get actionable data that will help grow your business
+          <FormattedMessage id="landing/stats/title" />
         </p>
         <p className="mt-5 text-lg text-gray-300">
-          Rhoncus sagittis risus arcu erat lectus bibendum. Ut in adipiscing
-          quis in viverra tristique sem. Ornare feugiat viverra eleifend fusce
-          orci in quis amet. Sit in et vitae tortor, massa. Dapibus laoreet amet
-          lacus nibh integer quis. Eu vulputate diam sit tellus quis at.
+          <FormattedMessage id="landing/stats/description" />
         </p>
         <div className="grid grid-cols-1 mt-12 gap-y-12 gap-x-6 sm:grid-cols-2">
           <p>
-            <span className="block text-2xl font-bold text-white">8K+</span>
+            <span className="block text-2xl font-bold text-white">
+              <FormattedMessage id="landing/stats/companies/value" />
+            </span>
             <span className="block mt-1 text-base text-gray-300">
-              <span className="font-medium text-white">Companies</span> use
-              laoreet amet lacus nibh integer quis.
+              <FormattedMessage id="landing/stats/companies/description" />
             </span>
           </p>
 
           <p>
-            <span className="block text-2xl font-bold text-white">25K+</span>
+            <span className="block text-2xl font-bold text-white">
+              <FormattedMessage id="landing/stats/countries/value" />
+            </span>
             <span className="block mt-1 text-base text-gray-300">
-              <span className="font-medium text-white">
-                Countries around the globe
-              </span>{" "}
-              lacus nibh integer quis.
+              <FormattedMessage id="landing/stats/countries/description" />
             </span>
           </p>
 
           <p>
-            <span className="block text-2xl font-bold text-white">98%</span>
+            <span className="block text-2xl font-bold text-white">
+              <FormattedMessage id="landing/stats/customers/value" />
+            </span>
             <span className="block mt-1 text-base text-gray-300">
-              <span className="font-medium text-white">
-                Customer satisfaction
-              </span>{" "}
-              laoreet amet lacus nibh integer quis.
+              <FormattedMessage id="landing/stats/customers/description" />
             </span>
           </p>
 
           <p>
-            <span className="block text-2xl font-bold text-white">12M+</span>
+            <span className="block text-2xl font-bold text-white"><FormattedMessage id="landing/stats/issues/value" /></span>
             <span className="block mt-1 text-base text-gray-300">
-              <span className="font-medium text-white">Issues resolved</span>{" "}
-              lacus nibh integer quis.
+            <FormattedMessage id="landing/stats/issues/description" />
             </span>
           </p>
         </div>

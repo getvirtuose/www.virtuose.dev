@@ -1,7 +1,15 @@
 import { Transition } from "@headlessui/react"
-import React, { useState } from "react"
+import React, { ReactElement, useState } from "react"
+import { FormattedMessage } from "react-intl"
+import { Link } from "gatsby"
+
+import SvgInbox from "../Icons/outline/Inbox"
 import SvgX from "../Icons/outline/X"
+import SvgMenu from "../Icons/outline/Menu"
 import SvgChevronDown from "../Icons/solid/ChevronDown"
+import SvgAnnotation from "../Icons/outline/Annotation"
+import SvgChatAlt2 from "../Icons/outline/ChatAlt2"
+import SvgQuestionMarkCircle from "../Icons/outline/QuestionMarkCircle"
 
 type Props = {}
 
@@ -19,7 +27,6 @@ export const Dropdown: React.FC<{ label: string }> = props => {
         aria-expanded="false"
       >
         <span>{props.label}</span>
-        {/* Heroicon name: solid/chevron-down */}
         <SvgChevronDown
           className={`w-5 h-5 ml-2 text-gray-400 transform group-hover:text-gray-500 ${
             isOpen ? "rotate-180" : ""
@@ -43,6 +50,35 @@ export const Dropdown: React.FC<{ label: string }> = props => {
   )
 }
 
+export const DropdownItem: React.FC<{
+  title: string | ReactElement
+  description: string | ReactElement
+  to: string
+  icon: ReactElement
+}> = props => (
+  <Link
+    to={props.to}
+    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
+  >
+    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
+      {props.icon}
+    </div>
+    <div className="ml-4">
+      <p className="text-base font-medium text-gray-900">{props.title}</p>
+      <p className="mt-1 text-sm text-gray-500">{props.description}</p>
+    </div>
+  </Link>
+)
+
+export const Tab: React.FC<{ to: string }> = props => (
+  <Link
+    to={props.to}
+    className="text-base font-medium text-gray-500 hover:text-gray-900"
+  >
+    {props.children}
+  </Link>
+)
+
 export const Header: React.FC<Props> = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
@@ -51,14 +87,14 @@ export const Header: React.FC<Props> = () => {
       <div className="relative bg-white">
         <div className="flex items-center justify-between px-4 py-6 mx-auto max-w-7xl sm:px-6 md:justify-start md:space-x-10 lg:px-8">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <Link to="#">
               <span className="sr-only">Workflow</span>
               <img
                 className="w-auto h-8 sm:h-10"
                 src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
             <button
@@ -68,192 +104,85 @@ export const Header: React.FC<Props> = () => {
               aria-expanded="false"
             >
               <span className="sr-only">Open menu</span>
-              <svg
-                className="w-6 h-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <SvgMenu className="w-6 h-6" />
             </button>
           </div>
           <nav className="hidden space-x-10 md:flex">
             <Dropdown label="Solutions">
               <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8 lg:grid-cols-2">
-                  <a
-                    href="#"
-                    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                  >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
-                      {/* <!-- Heroicon name: outline/inbox --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                        />
-                      </svg>
-                    </div>
-                    <div className="ml-4">
-                      <p className="text-base font-medium text-gray-900">
-                        Inbox
-                      </p>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Get a better understanding of where your traffic is
-                        coming from.
-                      </p>
-                    </div>
-                  </a>
+                  <DropdownItem
+                    to="/"
+                    icon={<SvgInbox className="w-6 h-6" />}
+                    title={
+                      <FormattedMessage id="landing/header/solutions/inbox/title" />
+                    }
+                    description={
+                      <FormattedMessage id="landing/header/solutions/inbox/description" />
+                    }
+                  />
 
-                  <a
-                    href="#"
-                    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                  >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
-                      {/* <!-- Heroicon name: outline/annotation --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="ml-4">
-                      <p className="text-base font-medium text-gray-900">
-                        Messaging
-                      </p>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Speak directly to your customers in a more meaningful
-                        way.
-                      </p>
-                    </div>
-                  </a>
+                  <DropdownItem
+                    to="#"
+                    icon={<SvgAnnotation className="w-6 h-6" />}
+                    title={
+                      <FormattedMessage id="landing/header/solutions/messaging/title" />
+                    }
+                    description={
+                      <FormattedMessage id="landing/header/solutions/messaging/description" />
+                    }
+                  />
 
-                  <a
-                    href="#"
-                    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                  >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
-                      {/* <!-- Heroicon name: outline/chat-alt-2 --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="ml-4">
-                      <p className="text-base font-medium text-gray-900">
-                        Live Chat
-                      </p>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Your customers&#039; data will be safe and secure.
-                      </p>
-                    </div>
-                  </a>
+                  <DropdownItem
+                    to="#"
+                    icon={<SvgChatAlt2 className="w-6 h-6" />}
+                    title={
+                      <FormattedMessage id="landing/header/solutions/live-chat/title" />
+                    }
+                    description={
+                      <FormattedMessage id="landing/header/solutions/live-chat/description" />
+                    }
+                  />
 
-                  <a
-                    href="#"
-                    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
-                  >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
-                      {/* <!-- Heroicon name: outline/question-mark-circle --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="ml-4">
-                      <p className="text-base font-medium text-gray-900">
-                        Knowledge Base
-                      </p>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Connect with third-party tools that you&#039;re already
-                        using.
-                      </p>
-                    </div>
-                  </a>
+                  <DropdownItem
+                    to="#"
+                    icon={<SvgQuestionMarkCircle className="w-6 h-6" />}
+                    title={
+                      <FormattedMessage id="landing/header/solutions/knowledge-base/title" />
+                    }
+                    description={
+                      <FormattedMessage id="landing/header/solutions/knowledge-base/description" />
+                    }
+                  />
                 </div>
               </div>
             </Dropdown>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Partners
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Company
-            </a>
+
+            <Tab to="#">
+              <FormattedMessage id="landing/tabs/pricing" />
+            </Tab>
+
+            <Tab to="#">
+              <FormattedMessage id="landing/tabs/partners" />
+            </Tab>
+
+            <Tab to="#">
+              <FormattedMessage id="landing/tabs/company" />
+            </Tab>
           </nav>
           <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-            <a
-              href="#"
+            <Link
+              to="/signin/"
               className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900"
             >
-              Sign in
-            </a>
-            <a
-              href="#"
+              <FormattedMessage id="landing/tabs/signin" />
+            </Link>
+            <Link
+              to="/signup/"
               className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white border border-transparent rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
             >
-              Sign up
-            </a>
+              <FormattedMessage id="landing/tabs/signup" />
+            </Link>
           </div>
         </div>
 
@@ -291,151 +220,95 @@ export const Header: React.FC<Props> = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid grid-cols-1 gap-7">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
                     <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
                       {/* <!-- Heroicon name: outline/inbox --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                        />
-                      </svg>
+                      <SvgInbox className="w-6 h-6" />
                     </div>
                     <div className="ml-4 text-base font-medium text-gray-900">
-                      Inbox
+                      <FormattedMessage id="landing/tabs/inbox" />
                     </div>
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
                     <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
-                      {/* <!-- Heroicon name: outline/annotation --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                        />
-                      </svg>
+                      {/* <!-- Heroicon name: outline/Annotation --> */}
+                      <SvgAnnotation className="w-6 h-6" />
                     </div>
                     <div className="ml-4 text-base font-medium text-gray-900">
-                      Messaging
+                      <FormattedMessage id="landing/tabs/messaging" />
                     </div>
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
                     <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
                       {/* <!-- Heroicon name: outline/chat-alt-2 --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
-                        />
-                      </svg>
+                      <SvgChatAlt2 className="w-6 h-6" />
                     </div>
                     <div className="ml-4 text-base font-medium text-gray-900">
-                      Live Chat
+                      <FormattedMessage id="landing/tabs/live-chat" />
                     </div>
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
                     <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
                       {/* <!-- Heroicon name: outline/question-mark-circle --> */}
-                      <svg
-                        className="w-6 h-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
+                      <SvgQuestionMarkCircle className="w-6 h-6" />
                     </div>
                     <div className="ml-4 text-base font-medium text-gray-900">
-                      Knowledge Base
+                      <FormattedMessage id="landing/tabs/knowledge-base" />
                     </div>
-                  </a>
+                  </Link>
                 </nav>
               </div>
             </div>
             <div className="px-5 py-6">
               <div className="grid grid-cols-2 gap-4">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Pricing
-                </a>
+                  <FormattedMessage id="landing/tabs/pricing" />
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Partners
-                </a>
+                  <FormattedMessage id="landing/tabs/partners" />
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Company
-                </a>
+                  <FormattedMessage id="landing/tabs/company" />
+                </Link>
               </div>
               <div className="mt-6">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
                 >
-                  Sign up
-                </a>
+                  <FormattedMessage id="landing/tabs/signup" />
+                </Link>
                 <p className="mt-6 text-base font-medium text-center text-gray-500">
-                  Existing customer?
-                  <a href="#" className="text-gray-900">
-                    Sign in
-                  </a>
+                  <FormattedMessage id="landing/menu/is-customer" />{" "}
+                  <Link to="#" className="text-gray-900">
+                    <FormattedMessage id="landing/tabs/signin" />
+                  </Link>
                 </p>
               </div>
             </div>

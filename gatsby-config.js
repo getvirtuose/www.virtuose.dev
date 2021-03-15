@@ -11,6 +11,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "en",
+        useLangKeyLayout: false,
+        prefixDefault: false,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/categories`,
