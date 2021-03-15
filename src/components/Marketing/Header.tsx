@@ -13,7 +13,7 @@ import SvgQuestionMarkCircle from "../Icons/outline/QuestionMarkCircle"
 
 type Props = {}
 
-export const Dropdown: React.FC<{ label: string }> = props => {
+export const Dropdown: React.FC<{ label: ReactElement }> = props => {
   const [isOpen, setOpen] = useState(false)
 
   return (
@@ -21,7 +21,7 @@ export const Dropdown: React.FC<{ label: string }> = props => {
       <button
         type="button"
         onClick={() => setOpen(!isOpen)}
-        className={`inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+        className={`inline-flex items-center text-base font-medium text-gray-500 bg-white rounded-md group hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
           isOpen ? "text-gray-600" : ""
         }`}
         aria-expanded="false"
@@ -60,7 +60,7 @@ export const DropdownItem: React.FC<{
     to={props.to}
     className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
   >
-    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 sm:h-12 sm:w-12">
+    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-blue-500 to-blue-700 sm:h-12 sm:w-12">
       {props.icon}
     </div>
     <div className="ml-4">
@@ -100,7 +100,7 @@ export const Header: React.FC<Props> = () => {
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
               aria-expanded="false"
             >
               <span className="sr-only">Open menu</span>
@@ -108,7 +108,11 @@ export const Header: React.FC<Props> = () => {
             </button>
           </div>
           <nav className="hidden space-x-10 md:flex">
-            <Dropdown label="Solutions">
+            <Dropdown
+              label={
+                <FormattedMessage id="landing/footer/categories/solutions" />
+              }
+            >
               <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8 lg:grid-cols-2">
                   <DropdownItem
@@ -179,7 +183,7 @@ export const Header: React.FC<Props> = () => {
             </Link>
             <Link
               to="/signup/"
-              className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white border border-transparent rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+              className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-700"
             >
               <FormattedMessage id="landing/tabs/signup" />
             </Link>
@@ -202,7 +206,7 @@ export const Header: React.FC<Props> = () => {
                 <div>
                   <img
                     className="w-auto h-8"
-                    src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
+                    src="https://tailwindui.com/img/logos/workflow-mark-blue-400-to-blue-600.svg"
                     alt="Workflow"
                   />
                 </div>
@@ -210,7 +214,7 @@ export const Header: React.FC<Props> = () => {
                   <button
                     type="button"
                     onClick={() => setMenuOpen(false)}
-                    className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                   >
                     <span className="sr-only">Close menu</span>
 
@@ -224,7 +228,7 @@ export const Header: React.FC<Props> = () => {
                     to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-blue-400 to-blue-600">
                       {/* <!-- Heroicon name: outline/inbox --> */}
                       <SvgInbox className="w-6 h-6" />
                     </div>
@@ -237,7 +241,7 @@ export const Header: React.FC<Props> = () => {
                     to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-blue-400 to-blue-600">
                       {/* <!-- Heroicon name: outline/Annotation --> */}
                       <SvgAnnotation className="w-6 h-6" />
                     </div>
@@ -250,7 +254,7 @@ export const Header: React.FC<Props> = () => {
                     to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-blue-400 to-blue-600">
                       {/* <!-- Heroicon name: outline/chat-alt-2 --> */}
                       <SvgChatAlt2 className="w-6 h-6" />
                     </div>
@@ -263,7 +267,7 @@ export const Header: React.FC<Props> = () => {
                     to="#"
                     className="flex items-center p-3 -m-3 rounded-lg hover:bg-gray-50"
                   >
-                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-white rounded-md bg-gradient-to-r from-blue-400 to-blue-600">
                       {/* <!-- Heroicon name: outline/question-mark-circle --> */}
                       <SvgQuestionMarkCircle className="w-6 h-6" />
                     </div>
@@ -300,7 +304,7 @@ export const Header: React.FC<Props> = () => {
               <div className="mt-6">
                 <Link
                   to="#"
-                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+                  className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700"
                 >
                   <FormattedMessage id="landing/tabs/signup" />
                 </Link>

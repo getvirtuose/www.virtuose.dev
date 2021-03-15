@@ -6,10 +6,10 @@ import logo from "../logo/logo.svg"
 const Item = ({ title, to, description }) => (
   <Link
     to={to}
-    className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+    className="flex items-start p-3 -m-3 rounded-lg hover:bg-gray-50"
   >
     <svg
-      className="flex-shrink-0 h-6 w-6 text-gray-400"
+      className="flex-shrink-0 w-6 h-6 text-gray-400"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -84,19 +84,19 @@ export const Navigation = ({ noBorder = false }) => {
           <nav
             className={`bg-white ${noBorder ? "" : "border-b"} relative z-20`}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between h-16 w-full">
-                <div className="flex w-full relative">
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+              <div className="flex justify-between w-full h-16">
+                <div className="relative flex w-full">
                   <Link
                     to="/"
-                    className="flex-shrink-0 flex items-center absolute h-full"
+                    className="absolute flex items-center flex-shrink-0 h-full"
                   >
                     <img
-                      className="block h-8 w-auto -mt-2"
+                      className="block w-auto h-8 -mt-2"
                       src={logo}
                       alt="logo"
                     />
-                    <span className="font-bold pl-2 uppercase">Chanoyu</span>
+                    <span className="pl-2 font-bold uppercase">Chanoyu</span>
                   </Link>
                   <div className="hidden mx-auto lg:flex">
                     <div className="flex space-x-8">
@@ -104,7 +104,7 @@ export const Navigation = ({ noBorder = false }) => {
                         <Link
                           key={node.id.value}
                           to={`/articles/${node.id.value}/`}
-                          className="text-gray-600 hover:text-gray-900 inline-flex items-center px-1 pt-1 font-medium"
+                          className="inline-flex items-center px-1 pt-1 font-medium text-gray-600 hover:text-gray-900"
                         >
                           {node.name}
                         </Link>
@@ -144,9 +144,9 @@ export const Navigation = ({ noBorder = false }) => {
                           leaveFrom="opacity-100 translate-y-0"
                           leaveTo="opacity-0 translate-y-1"
                         >
-                          <div className="absolute left-1/2 z-10 transform transition -translate-x-1/2 mt-6 px-2 w-screen max-w-md sm:px-0">
-                            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                              <div className="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                          <div className="absolute z-10 w-screen max-w-md px-2 mt-6 transition transform -translate-x-1/2 left-1/2 sm:px-0">
+                            <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                              <div className="relative z-20 grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
                                 {categories.edges.map(({ node }) => (
                                   <Item
                                     key={node.id.value}
@@ -159,7 +159,7 @@ export const Navigation = ({ noBorder = false }) => {
 
                               <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
                                 <div>
-                                  <span className="text-sm tracking-wide font-medium text-gray-500 uppercase">
+                                  <span className="text-sm font-medium tracking-wide text-gray-500 uppercase">
                                     Les articles récents
                                   </span>
                                   <ul className="mt-4 space-y-4">
@@ -170,7 +170,7 @@ export const Navigation = ({ noBorder = false }) => {
                                       >
                                         <Link
                                           to={node.frontmatter.url}
-                                          className="font-medium text-gray-900 hover:text-red-400 transition-colors"
+                                          className="font-medium text-gray-900 transition-colors hover:text-red-400"
                                         >
                                           {node.frontmatter.title}
                                         </Link>
@@ -181,10 +181,10 @@ export const Navigation = ({ noBorder = false }) => {
                                 <div className="mt-5 text-sm">
                                   <Link
                                     to={"/articles/"}
-                                    className="group flex items-center font-medium text-red-400 hover:text-red-500"
+                                    className="flex items-center font-medium text-red-400 group hover:text-red-500"
                                   >
                                     Voir tous les articles
-                                    <div className="transform pl-2 transition-all duration-300 ease-in-out group-hover:translate-x-2">
+                                    <div className="pl-2 transition-all duration-300 ease-in-out transform group-hover:translate-x-2">
                                       &rarr;
                                     </div>
                                   </Link>
@@ -196,17 +196,17 @@ export const Navigation = ({ noBorder = false }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex ml-auto items-center lg:hidden">
+                  <div className="flex items-center ml-auto lg:hidden">
                     <button
                       onClick={() => setOpen(true)}
                       type="button"
-                      className="rounded p-2 inline-flex items-center justify-center text-gray-800 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                      className="inline-flex items-center justify-center p-2 text-gray-800 rounded hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                       id="main-menu"
                       aria-haspopup="true"
                     >
                       <span className="sr-only">Open main menu</span>
                       <svg
-                        className="h-6 w-6"
+                        className="w-6 h-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -226,7 +226,7 @@ export const Navigation = ({ noBorder = false }) => {
               </div>
               <Transition
                 show={isOpen}
-                className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden"
                 enter="duration-150 ease-out"
                 enterFrom="opacity-0 scale-95"
                 enterTo="opacity-100 scale-100"
@@ -234,20 +234,20 @@ export const Navigation = ({ noBorder = false }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                  <div className="px-5 pt-4 flex items-center justify-between">
+                <div className="overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
+                  <div className="flex items-center justify-between px-5 pt-4">
                     <div>
-                      <img className="h-8 w-auto" src={logo} alt="" />
+                      <img className="w-auto h-8" src={logo} alt="" />
                     </div>
                     <div className="-mr-2">
                       <button
                         onClick={() => setOpen(false)}
                         type="button"
-                        className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                        className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                       >
                         <span className="sr-only">Close menu</span>
                         <svg
-                          className="h-6 w-6"
+                          className="w-6 h-6"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -272,7 +272,7 @@ export const Navigation = ({ noBorder = false }) => {
                     <div className="px-2 pt-2 pb-3" role="none">
                       <Link
                         to={`/articles/`}
-                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                        className="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
                         role="menuitem"
                       >
                         Articles
@@ -281,7 +281,7 @@ export const Navigation = ({ noBorder = false }) => {
                         <Link
                           key={node.id.value}
                           to={`/articles/${node.id.value}/`}
-                          className="block px-3 py-2 pl-6 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                          className="block px-3 py-2 pl-6 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
                           role="menuitem"
                         >
                           {node.name}

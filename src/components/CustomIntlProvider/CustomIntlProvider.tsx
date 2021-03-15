@@ -8,8 +8,9 @@ import fr from "../../i18n/messages/fr.json"
 import pt from "../../i18n/messages/pt.json"
 import es from "../../i18n/messages/es.json"
 import de from "../../i18n/messages/de.json"
+import ja from "../../i18n/messages/ja.json"
 
-const messages = { en, fr, pt, es, de }
+const messages = { en, fr, pt, es, de, ja }
 
 export const CustomIntlProvider = props => {
   const [dynamicLanguage, setDynamicLanguage] = useState(null)
@@ -20,7 +21,9 @@ export const CustomIntlProvider = props => {
     const language = localStorage.getItem("language")
     const selectTheRightLanguage =
       language ||
-      languages.find(value => /(^fr)|(^en)|(^de)|(^pt)|(^es)/gim.exec(value)) ||
+      languages.find(value =>
+        /(^fr)|(^en)|(^de)|(^pt)|(^es)|(^ja)/gim.exec(value)
+      ) ||
       "en"
 
     const [lang] = selectTheRightLanguage.split("-")

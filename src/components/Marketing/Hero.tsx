@@ -16,7 +16,7 @@ export const Hero: React.FC<Props> = () => (
             alt="People working on laptops"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700"
+            className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-900"
             style={{ mixBlendMode: "multiply" }}
           ></div>
         </div>
@@ -26,20 +26,20 @@ export const Hero: React.FC<Props> = () => (
               <FormattedMessage id="landing/hero/title" />
             </span>
           </h1>
-          <p className="max-w-lg mx-auto mt-6 text-xl text-center text-indigo-200 sm:max-w-3xl">
+          <p className="max-w-lg mx-auto mt-6 text-xl text-center text-blue-200 sm:max-w-3xl">
             <FormattedMessage id="landing/hero/description" />
           </p>
           <div className="max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
             <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
               <Link
                 to="/"
-                className="flex items-center justify-center px-4 py-3 text-base font-medium text-indigo-700 bg-white border border-transparent rounded-md shadow-sm hover:bg-indigo-50 sm:px-8"
+                className="flex items-center justify-center px-4 py-3 text-base font-medium text-blue-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-blue-50 sm:px-8"
               >
                 <FormattedMessage id="landing/buttons/get-started" />
               </Link>
               <Link
                 to="/"
-                className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm bg-opacity-60 hover:bg-opacity-70 sm:px-8"
+                className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-blue-500 border border-transparent rounded-md shadow-sm bg-opacity-70 hover:bg-opacity-80 sm:px-8"
               >
                 <FormattedMessage id="landing/buttons/live-demo" />
               </Link>

@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const languages = require("./src/configuration/languages.json")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -102,6 +103,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nextPostId,
         category: category.node.url,
         products,
+      },
+    })
+  })
+
+  languages.forEach(lang => {
+    createPage({
+      path: lang === "en" ? "/" : `/${lang}/`,
+      component: path.resolve(`./src/templates/index.tsx`),
+      context: {
+        langKey: lang,
       },
     })
   })

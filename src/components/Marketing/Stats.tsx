@@ -23,7 +23,7 @@ export const Stats: React.FC<Props> = () => (
     <div className="max-w-4xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
       <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
         <h2 className="text-sm font-semibold tracking-wide uppercase">
-          <span className="text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text">
+          <span className="text-transparent bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text">
             <FormattedMessage id="landing/stats/label" />
           </span>
         </h2>

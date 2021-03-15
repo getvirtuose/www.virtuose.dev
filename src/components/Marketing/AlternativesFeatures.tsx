@@ -10,7 +10,7 @@ type Props = {}
 const GetStarted: React.FC = () => (
   <Link
     to="/"
-    className="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700"
+    className="inline-flex px-4 py-2 text-base font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-700"
   >
     <FormattedMessage id="landing/buttons/get-started" />
   </Link>
@@ -23,7 +23,7 @@ const Content: React.FC<{
 }> = props => (
   <div>
     <div>
-      <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600">
+      <span className="flex items-center justify-center w-12 h-12 rounded-md bg-gradient-to-r from-blue-500 to-blue-700">
         {props.icon}
       </span>
     </div>

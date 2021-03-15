@@ -10,19 +10,19 @@ import { Breadcrumb } from "../components/Breadcrumb"
 
 const Section = ({ children, title, description = null }) => (
   <div className="container mx-auto">
-    <div className="relative pt-8 pb-20 px-4 sm:px-6 lg:pt-8 lg:pb-8 lg:px-8">
-      <div className="relative max-w-7xl mx-auto">
+    <div className="relative px-4 pt-8 pb-20 sm:px-6 lg:pt-8 lg:pb-8 lg:px-8">
+      <div className="relative mx-auto max-w-7xl">
         <div className="">
-          <h2 className="font-serif text-3xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
+          <h2 className="font-serif text-3xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             {title}
           </h2>
           {description && (
-            <p className="mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
+            <p className="max-w-2xl mt-3 text-xl text-gray-500 sm:mt-4">
               {description}
             </p>
           )}
         </div>
-        <div className="mt-12 w-full">{children}</div>
+        <div className="w-full mt-12">{children}</div>
       </div>
       <hr className="mt-10" />
     </div>
@@ -32,10 +32,10 @@ const Section = ({ children, title, description = null }) => (
 const Category = ({ title, to }) => (
   <Link
     to={to}
-    className="relative rounded-lg border cursor-pointer border-gray-300 bg-white px-6 py-5 flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+    className="relative flex items-center px-6 py-5 space-x-3 bg-white border border-gray-300 rounded-lg cursor-pointer hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
   >
     <div className="flex-1 min-w-0">
-      <div className="focus:outline-none flex items-center justify-between">
+      <div className="flex items-center justify-between focus:outline-none">
         <p className="text-sm font-medium text-gray-900">{title}</p>
         <div className="text-sm font-medium text-gray-900">
           <svg
@@ -43,7 +43,7 @@ const Category = ({ title, to }) => (
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className="h-4 w-4"
+            className="w-4 h-4"
           >
             <path
               strokeLinecap="round"
@@ -82,7 +82,7 @@ const BlogIndex = ({ data }) => {
         title={configuration.section.categories.title}
         description={configuration.section.categories.description}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {categories.map(({ node }) => (
             <Category title={node.name} to={`/articles/${node.id.value}/`} />
           ))}
@@ -95,7 +95,7 @@ const BlogIndex = ({ data }) => {
       >
         <div className="flex flex-col w-full">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200 sm:rounded-lg">
                 <table className="min-w-full divide-y divide-gray-200">
                   <tbody>
@@ -111,13 +111,13 @@ const BlogIndex = ({ data }) => {
                           display: "table-row",
                         }}
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                           {node.frontmatter.title}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {$categories[node.frontmatter.category].name}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                           <div className="text-red-400 hover:text-red-600">
                             {configuration.section.articles.read}
                           </div>
