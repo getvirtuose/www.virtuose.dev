@@ -1,6 +1,12 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://chanoyu.fr`,
+    // @todo
+    siteUrl: `https://www.virtuose.dev`,
+    url: `https://www.virtuose.dev`,
+    favicon: `/manifest/16x16.png`,
+    author: "Kevin Marques",
+    image: "/manifest/192x192.png",
+    twitterUsername: "virtuose",
   },
   plugins: [
     {
@@ -77,15 +83,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-179614623-1`,
+        trackingId: `G-G4S464QHNM`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Chanoyu`,
-        short_name: `Chanoyu`,
+        name: `Virtuose`,
+        short_name: `Virtuose`,
         start_url: `/?utm_source=web_app_manifest`,
         background_color: `#ffffff`,
         theme_color: `#F87171`,
@@ -96,7 +102,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://chanoyu.fr`,
+        siteUrl: `https://www.virtuose.dev`,
       },
     },
     "gatsby-plugin-svgr",

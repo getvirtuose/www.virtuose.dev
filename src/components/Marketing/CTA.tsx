@@ -11,14 +11,14 @@ export const CTA: React.FC<Props> = () => (
         <span className="block">
           <FormattedMessage id="landing/cta/title" />
         </span>
-        <span className="block text-transparent bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text">
+        <span className="block text-blue-600">
           <FormattedMessage id="landing/cta/description" />
         </span>
       </h2>
       <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
         <Link
           to="/"
-          className="flex items-center justify-center px-4 py-3 text-base font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800"
+          className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700"
         >
           <FormattedMessage id="landing/buttons/learn-more" />
         </Link>

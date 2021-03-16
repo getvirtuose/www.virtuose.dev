@@ -91,7 +91,7 @@ export const Header: React.FC<Props> = () => {
               <span className="sr-only">Workflow</span>
               <img
                 className="w-auto h-8 sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-purple-600-to-indigo-600.svg"
+                src="https://tailwindui.com/img/logos/workflow-mark-blue-600.svg"
                 alt=""
               />
             </Link>
@@ -174,16 +174,17 @@ export const Header: React.FC<Props> = () => {
               <FormattedMessage id="landing/tabs/company" />
             </Tab>
           </nav>
-          <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
+          <div className="items-center justify-end hidden space-x-8 md:flex md:flex-1 lg:w-0">
             <Link
               to="/signin/"
               className="text-base font-medium text-gray-500 whitespace-nowrap hover:text-gray-900"
             >
               <FormattedMessage id="landing/tabs/signin" />
             </Link>
+
             <Link
               to="/signup/"
-              className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white rounded-md shadow-sm whitespace-nowrap bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-700"
+              className="inline-flex items-center justify-center px-4 py-2 text-base font-medium text-blue-700 bg-blue-100 border border-transparent rounded-md whitespace-nowrap hover:bg-blue-200"
             >
               <FormattedMessage id="landing/tabs/signup" />
             </Link>

@@ -156,7 +156,7 @@ export const Footer: React.FC<Props> = () => {
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full px-4 py-3 text-base font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800"
+                  className="flex items-center justify-center w-full px-4 py-3 text-base font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700"
                 >
                   <FormattedMessage id="landing/buttons/subscribe" />
                 </button>
