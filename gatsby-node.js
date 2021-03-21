@@ -126,6 +126,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  languages.forEach(lang => {
+    createPage({
+      path: lang === "en" ? "/contact/" : `/${lang}/contact/`,
+      component: path.resolve(`./src/templates/contact.tsx`),
+      context: {
+        langKey: lang,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

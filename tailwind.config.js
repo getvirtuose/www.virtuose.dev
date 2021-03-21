@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors")
+
 module.exports = {
   darkMode: false, // or 'media' or 'class'
   purge:
@@ -6,6 +8,10 @@ module.exports = {
       : [],
   theme: {
     extend: {
+      colors: {
+        "warm-gray": colors.warmGray,
+        teal: colors.teal,
+      },
       padding: {
         full: "100%",
       },

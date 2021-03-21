@@ -3,13 +3,13 @@ import React, { ReactElement, useState } from "react"
 import { FormattedMessage } from "react-intl"
 import { Link } from "gatsby"
 
-import SvgInbox from "../Icons/outline/Inbox"
-import SvgX from "../Icons/outline/X"
-import SvgMenu from "../Icons/outline/Menu"
-import SvgChevronDown from "../Icons/solid/ChevronDown"
-import SvgAnnotation from "../Icons/outline/Annotation"
-import SvgChatAlt2 from "../Icons/outline/ChatAlt2"
-import SvgQuestionMarkCircle from "../Icons/outline/QuestionMarkCircle"
+import SvgInbox from "../../Icons/outline/Inbox"
+import SvgX from "../../Icons/outline/X"
+import SvgMenu from "../../Icons/outline/Menu"
+import SvgChevronDown from "../../Icons/solid/ChevronDown"
+import SvgAnnotation from "../../Icons/outline/Annotation"
+import SvgChatAlt2 from "../../Icons/outline/ChatAlt2"
+import SvgQuestionMarkCircle from "../../Icons/outline/QuestionMarkCircle"
 
 type Props = {}
 
@@ -79,7 +79,7 @@ export const Tab: React.FC<{ to: string }> = props => (
   </Link>
 )
 
-export const Header: React.FC<Props> = () => {
+export const Light: React.FC<Props> = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -87,7 +87,7 @@ export const Header: React.FC<Props> = () => {
       <div className="relative bg-white">
         <div className="flex items-center justify-between px-4 py-6 mx-auto max-w-7xl sm:px-6 md:justify-start md:space-x-10 lg:px-8">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link to="#">
+            <Link to="/">
               <span className="sr-only">Workflow</span>
               <img
                 className="w-auto h-8 sm:h-10"
@@ -162,7 +162,7 @@ export const Header: React.FC<Props> = () => {
               </div>
             </Dropdown>
 
-            <Tab to="#">
+            <Tab to="/pricing/">
               <FormattedMessage id="landing/tabs/pricing" />
             </Tab>
 

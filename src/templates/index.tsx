@@ -1,15 +1,16 @@
 import React from "react"
 import { Footer } from "../components/Marketing/Footer"
-import { AlternativeFeatures } from "../components/Marketing/AlternativesFeatures"
+import { Features } from "../components/Marketing/Features/Features"
 import { CTA } from "../components/Marketing/CTA"
 import { GradientFeatures } from "../components/Marketing/GradientFeatures"
-import { Header } from "../components/Marketing/Header"
-import { Hero } from "../components/Marketing/Hero"
+import { Header } from "../components/Marketing/Header/Header"
+import { Hero } from "../components/Marketing/Hero/Hero"
 import { LogoCloud } from "../components/Marketing/LogoCloud"
 import { Stats } from "../components/Marketing/Stats"
 import { Seo } from "../components/Seo/Seo"
 import { PageProps } from "gatsby"
 import { useIntl } from "react-intl"
+import { SinglePricingWithFeatures } from "../components/Marketing/Pricing/SinglePricingWithFeatures"
 
 type Props = {} & PageProps<null, { langKey: string }>
 
@@ -33,14 +34,15 @@ export const Landing: React.FC<Props> = props => {
         ]}
       />
       <div className="bg-white">
-        <Header />
+        <Header theme="dark" />
 
         <main>
-          <Hero />
+          <Hero theme="dark" />
           <LogoCloud />
-          <AlternativeFeatures />
-          <GradientFeatures />
-          <Stats />
+          <Features theme="grid-with-icons" />
+          <SinglePricingWithFeatures />
+          {/* <GradientFeatures /> */}
+          {/* <Stats /> */}
           <CTA />
         </main>
 

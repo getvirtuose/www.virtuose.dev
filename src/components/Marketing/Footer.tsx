@@ -89,7 +89,7 @@ export const Footer: React.FC<Props> = () => {
                 </Head>
 
                 <ul className="mt-4 space-y-4">
-                  <Tab to="/">
+                  <Tab to="/contact/">
                     <FormattedMessage id="landing/tabs/about" />
                   </Tab>
 
@@ -148,7 +148,7 @@ export const Footer: React.FC<Props> = () => {
                 id="emailAddress"
                 autoComplete="email"
                 required
-                className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400"
+                className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-green-500 focus:border-green-500 focus:placeholder-gray-400"
                 placeholder={intl.formatMessage({
                   id: "landing/input/email",
                 })}
@@ -156,7 +156,7 @@ export const Footer: React.FC<Props> = () => {
               <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full px-4 py-3 text-base font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700"
+                  className="flex items-center justify-center w-full px-4 py-3 text-base font-medium text-white bg-green-600 rounded-md shadow-sm hover:bg-green-700"
                 >
                   <FormattedMessage id="landing/buttons/subscribe" />
                 </button>

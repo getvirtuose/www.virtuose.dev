@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl"
 
 type Props = {}
 
-export const Hero: React.FC<Props> = () => (
+export const People: React.FC<Props> = () => (
   <div className="relative">
     <div className="absolute inset-x-0 bottom-0 bg-gray-100 h-1/2"></div>
     <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -16,7 +16,7 @@ export const Hero: React.FC<Props> = () => (
             alt="People working on laptops"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-900"
+            className="absolute inset-0 bg-green-500"
             style={{ mixBlendMode: "multiply" }}
           ></div>
         </div>
@@ -26,20 +26,20 @@ export const Hero: React.FC<Props> = () => (
               <FormattedMessage id="landing/hero/title" />
             </span>
           </h1>
-          <p className="max-w-lg mx-auto mt-6 text-xl text-center text-blue-200 sm:max-w-3xl">
+          <p className="max-w-lg mx-auto mt-6 text-xl text-center text-green-200 sm:max-w-3xl">
             <FormattedMessage id="landing/hero/description" />
           </p>
           <div className="max-w-sm mx-auto mt-10 sm:max-w-none sm:flex sm:justify-center">
             <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
               <Link
                 to="/"
-                className="flex items-center justify-center px-4 py-3 text-base font-medium text-blue-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-blue-50 sm:px-8"
+                className="flex items-center justify-center px-4 py-3 text-base font-medium text-green-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-green-50 sm:px-8"
               >
                 <FormattedMessage id="landing/buttons/get-started" />
               </Link>
               <Link
                 to="/"
-                className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-blue-500 border border-transparent rounded-md shadow-sm bg-opacity-70 hover:bg-opacity-80 sm:px-8"
+                className="flex items-center justify-center px-4 py-3 text-base font-medium text-white bg-green-500 border border-transparent rounded-md shadow-sm bg-opacity-70 hover:bg-opacity-80 sm:px-8"
               >
                 <FormattedMessage id="landing/buttons/live-demo" />
               </Link>

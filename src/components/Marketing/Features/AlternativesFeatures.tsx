@@ -2,8 +2,8 @@ import React, { ReactElement } from "react"
 import { Link } from "gatsby"
 import { FormattedMessage } from "react-intl"
 
-import SvgInbox from "../Icons/outline/Inbox"
-import SvgSparkles from "../Icons/outline/Sparkles"
+import SvgInbox from "../../Icons/outline/Inbox"
+import SvgSparkles from "../../Icons/outline/Sparkles"
 
 type Props = {}
 

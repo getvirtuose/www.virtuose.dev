@@ -1,13 +1,12 @@
 import React from "react"
 import { Footer } from "../components/Marketing/Footer"
-import { CTA } from "../components/Marketing/CTA"
 import { Header } from "../components/Marketing/Header/Header"
-import { LogoCloud } from "../components/Marketing/LogoCloud"
+import { Hero } from "../components/Marketing/contact/Hero"
 import { Seo } from "../components/Seo/Seo"
 import { PageProps } from "gatsby"
 import { useIntl } from "react-intl"
-import { SinglePricingWithFeatures } from "../components/Marketing/Pricing/SinglePricingWithFeatures"
 import { FAQ } from "../components/Marketing/Pricing/FAQ"
+import { Form } from "../components/Marketing/Contact/Form"
 
 type Props = {} & PageProps<null, { langKey: string }>
 
@@ -17,27 +16,25 @@ export const Landing: React.FC<Props> = props => {
   return (
     <>
       <Seo
-        title={intl.formatMessage({ id: "pricing/seo/title" })}
-        description={intl.formatMessage({ id: "pricing/seo/description" })}
+        title={intl.formatMessage({ id: "contact/seo/title" })}
+        description={intl.formatMessage({ id: "contact/seo/description" })}
         lang={props.pageContext.langKey}
         defaultLangUrl="/"
         langUrls={[
-          { url: "/pricing/", lang: "en" },
-          { url: "/fr/pricing/", lang: "fr" },
-          { url: "/de/pricing/", lang: "de" },
-          { url: "/ja/pricing/", lang: "ja" },
-          { url: "/pt/pricing/", lang: "pt" },
-          { url: "/es/pricing/", lang: "es" },
+          { url: "/contact/", lang: "en" },
+          { url: "/fr/contact/", lang: "fr" },
+          { url: "/de/contact/", lang: "de" },
+          { url: "/ja/contact/", lang: "ja" },
+          { url: "/pt/contact/", lang: "pt" },
+          { url: "/es/contact/", lang: "es" },
         ]}
       />
       <div className="bg-white">
         <Header theme="light" />
 
         <main>
-          <SinglePricingWithFeatures />
-          <LogoCloud />
-          <FAQ />
-          <CTA />
+          <Hero />
+          <Form />
         </main>
 
         <Footer />

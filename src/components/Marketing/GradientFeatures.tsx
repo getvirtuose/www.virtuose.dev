@@ -41,9 +41,9 @@ export const GradientFeatures: React.FC<Props> = () => (
       <div className="grid grid-cols-1 mt-12 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
         <Feature
           icon={<SvgInbox className="w-6 h-6 text-white" />}
-          title={<FormattedMessage id="landing/features/features/title" />}
+          title={<FormattedMessage id="landing/features/title" />}
           description={
-            <FormattedMessage id="landing/features/features/description" />
+            <FormattedMessage id="landing/features/description" />
           }
         />
 
